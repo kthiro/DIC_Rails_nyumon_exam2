@@ -1,0 +1,19 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  template: template0
+
+development:
+  <<: *default
+  database: rails_nyumon_exam2_development
+
+test:
+  <<: *default
+  database: rails_nyumon_exam2_test
+
+production:
+  <<: *default
+  database: rails_nyumon_exam2_production
+  username: rails_nyumon_exam2
+  password: <%= ENV['RAILS_NYUMON_EXAM2_DATABASE_PASSWORD'] %>
